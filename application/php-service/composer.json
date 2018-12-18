@@ -1,0 +1,12 @@
+{
+    "name": "sstratton/php-service",
+    "type": "project",
+    "require": {
+        "slim/slim": "^3.11"
+    },
+    "autoload": {
+        "psr-4": {
+            "mfacenet\\Sample\\": "src/"
+        }
+    }
+}

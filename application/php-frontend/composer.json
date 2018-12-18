@@ -1,0 +1,8 @@
+{
+    "name": "sstratton/php-frontend",
+    "type": "project",
+    "require": {
+        "twig/twig": "^2.0",
+        "rmccue/requests": "^1.7"
+    }
+}

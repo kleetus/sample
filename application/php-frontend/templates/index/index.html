@@ -1,0 +1,17 @@
+{% extends '_layout/layout.html' %}
+
+{% block content %}
+<p>
+    <table>
+    <thead>
+    <tr><td>Key</td><td>Value</td></tr>
+    </thead>
+    <tbody>
+    {% for key, value in output %}
+    <tr><td>{{ key }}</td><td>{{ value }}</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</p>
+{% endblock %}

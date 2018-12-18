@@ -1,0 +1,47 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-frontend
+  labels:
+    app: php-frontend
+spec:
+  #Replicas Normally goes here, I don't include it because it overwrites values on replace/update
+  selector:
+    matchLabels:
+      app: php-frontend
+  template:
+    metadata:
+      labels:
+        app: php-frontend
+    spec:
+      containers:
+        - name: php-frontend
+          image: mfacenet/php-frontend:1
+          envFrom:
+            - configMapRef:
+                name: sample-config
+          ports:
+            - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-service
+  labels:
+    app: php-service
+spec:
+  #Replicas Normally goes here, I don't include it because it overwrites values on replace/update
+  selector:
+    matchLabels:
+      app: php-service
+  template:
+    metadata:
+      labels:
+        app: php-service
+    spec:
+      containers:
+        - name: php-service
+          image: mfacenet/php-service:1
+          ports:
+            - containerPort: 80

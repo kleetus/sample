@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+    php-frontend:
+        build: php-frontend/
+        image: webopninjas/php-frontend:1
+        restart: always
+        depends_on: 
+        - php-service
+        ports: 
+        - "8006:80"
+        environment:
+            API_ENDPOINT: php-service
+        volumes:
+          - ./php-frontend/:/var/www/html
+        links: 
+        - php-service
+    php-service:
+        build: php-service/
+        image: webopninjas/php-service:1
+        restart: always
+        environment: 
+            OPTIONAL_LABEL: test
+        volumes:
+        - ./php-service/:/var/www/html
